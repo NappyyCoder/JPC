@@ -1,0 +1,407 @@
+
+/* -------- Defining variables ----------*/
+
+:root {
+  --jpcBlue : #081448;
+  --jpcLightBlue : #262f58;
+  --jpcGold : #E5D38C;
+  --jpcWhite : #f5f5f5;
+  --jpcGray : #EDEDED;
+  --xs: 0;
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+  --xxl: 1400px;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin:0;
+  font-family: 'Baskerville', sans-serif; /* Replace 'Your Chosen Font' with your desired font */
+}
+
+.content {
+  min-height: calc(100vh - 100px); /* Adjust '100px' to match your header/nav height */
+}
+
+.bg-body-tertiary {
+  background-color: var(--jpcBlue) !important;
+}
+
+.nav-toggle {
+  filter: invert(1); /* Makes the icon white */
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white; /* Adjust as needed */
+}
+
+.team-member-header img{
+  width: 80%;
+  border-radius:20px;
+}
+
+@media (min-width: 0px) {
+  p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    color: var(--jpcBlue);
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    color: var(--jpcBlue);
+    font-size:1.8rem;
+  }
+
+  h3 {
+    color: var(--jpcBlue);
+    font-size:1.7rem;
+  }
+}
+
+@media (min-width: 576px) {
+  p {
+    font-size: 1.6rem;
+  }
+
+  h1 {
+    color: var(--jpcBlue);
+    font-size: 3.2rem;
+  }
+
+  h2 {
+    color: var(--jpcBlue);
+    font-size:2.7rem;
+  }
+
+  h3 {
+    color: var(--jpcBlue);
+    font-size:2.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 2.1rem;
+  }
+
+  h1 {
+    color: var(--jpcBlue);
+    font-size: 4.8rem;
+  }
+
+  h2 {
+    color: var(--jpcBlue);
+    font-size:3.5rem;
+  }
+
+  h3 {
+    color: var(--jpcBlue);
+    font-size:2.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    color: var(--jpcBlue);
+    font-size: 7rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  h1 {
+    color: var(--jpcBlue);
+    font-size: 8.5rem;
+  }
+
+  h3 {
+    color: var(--jpcBlue);
+    font-size: 3.2rem;
+  }
+}
+
+
+/* -------Navigation Bar on the top of all the pages ------ */
+
+.nav img {
+  height: 100px;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  font-size : 18pt
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .25rem;
+}
+
+.nav li.active {
+  background-color: #555;
+}
+
+.nav li:hover {
+  background-color: var(--jpcLightBlue) ;
+}
+
+.section {
+  margin-top: 50px;
+  margin-bottom:50px
+}
+
+/* ----------Title of the page---------- */
+
+#page-header {
+    padding: 10px 0;
+    height: 35vw;
+    text-align: center;
+    align-content: center;
+    background-image: url("../public/images/Construction.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+/* -------- Mission Statement on the Home page ---------*/
+
+#mission-statement {
+  color: var(--jpcBlue);
+}
+
+
+
+
+
+/* -------- Our Services on the Home page ---------*/
+
+#our-services {
+  height: auto;
+  background-color: var(--jpcGray);
+}
+
+#service-box {
+  text-align: center;
+  color:var(--jpcBlue);
+  margin:auto;
+}
+
+#service-box h2{
+  color:var(--jpcBlue);
+}
+
+#service-box-description {
+  align-content: center;
+}
+
+@media (min-width: 992px) {
+  #service-box-description p{
+    font-size: 1.5rem;
+  }
+}
+
+
+
+@media (min-width: 0px) {
+  #codes li{
+    font-size:1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  #codes li{
+    font-size:1.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #codes li{
+    font-size:2.1rem;
+  }
+}
+
+/* ----- Meet our Team ------ */
+
+#meet-team {
+  background-color: var(--jpcGold);
+  color: var(--jpcBlue);
+  justify-content: center;
+  text-align: center;
+}
+
+#meet-team div{
+  background-color: var(--jpcGold);
+}
+
+#meet-team-info {
+  text-align: center;
+}
+
+@media (min-width: 0px) {
+  #formContainer {
+    font-size: 1rem;
+  }
+}
+
+#teamButton {
+  background-color: var(--jpcBlue) !important; /* Custom orange color */
+}
+
+@media (min-width: 0px) {
+  #teamButton {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  #teamButton {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #teamButton {
+    font-size: 1.9rem;
+  }
+}
+
+/* ----------Contact us----------- */
+
+#contact-us {
+  justify-content: center; /* Centers vertically */
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Centers the text */
+  background-color: var(--jpcGray);
+  color: var(--jpcBlue)
+}
+
+#contact-us img {
+  height:200px;
+  width:200px;
+}
+
+
+/* -------------------ABOUT PAGE -------------------- */
+#about-us {
+  height : auto;
+}
+
+#about-us img{
+  height: 40vw;
+  width: 40vw;
+  float: right;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+#about-us p{
+  text-align: justify;
+}
+
+/* ----------Team member boxes----------- */
+
+#our-team {
+  text-align: center;
+  justify-content: center; /* Centers vertically */
+  align-items: center; /* Centers horizontally */
+  height: 100%;
+}
+
+#employee {
+  justify-content: center;
+}
+
+
+/* -------------Sign Up Page ------------*/
+
+@media (min-width: 0px) {
+  #formContainer {
+    display: flex;
+    flex-direction: column;
+    height: 2700px;
+  }
+}
+
+@media (min-width: 576px) {
+  #formContainer {
+    height: 2700px;
+  }
+}
+
+@media (min-width: 992px) {
+  #formContainer {
+    height: 2700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #formContainer {
+    height: 2700px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #formContainer {
+    height: 2700px;
+  }
+}
+
+/*
+  Form
+*/
+
+@media (min-width: 0px) {
+  #contractor-form {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  #contractor-form {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #contractor-form {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  #contractor-form {
+    font-size: 3.5rem;
+  }
+}
+
+#form {
+  flex-grow: 1;  /* Takes up full height of parent */
+}
+
+
+
+
+
+
+
+
+
