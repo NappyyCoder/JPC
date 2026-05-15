@@ -1,0 +1,10 @@
+# Let HTML entry update quickly so browsers pick up new main.[hash].js after deploy.
+# Hashed /static/* files stay long-cache safe (immutable filenames).
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
