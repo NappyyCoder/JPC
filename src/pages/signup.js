@@ -62,7 +62,7 @@ export default function Signup() {
         const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY?.trim();
         if (!accessKey) {
             alert(
-                "Web3Forms is not configured. Add REACT_APP_WEB3FORMS_ACCESS_KEY to your .env file and restart the dev server."
+                "Web3Forms is not configured. For local dev: put REACT_APP_WEB3FORMS_ACCESS_KEY in a .env file in the project root and restart npm start. For the live site: add that same name as a GitHub Actions secret (or your host's build env), then redeploy so npm run build runs with the variable set."
             );
             return;
         }
