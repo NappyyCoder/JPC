@@ -23,6 +23,7 @@ jobs:
           missing=0
           if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then echo "::error::Add repository secret CLOUDFLARE_API_TOKEN (Cloudflare API token with Pages + Account read)"; missing=1; fi
           if [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then echo "::error::Add repository secret CLOUDFLARE_ACCOUNT_ID (Cloudflare account ID from dashboard sidebar)"; missing=1; fi
+          if [ -z "${{ secrets.REACT_APP_WEB3FORMS_ACCESS_KEY }}" ]; then echo "::warning::REACT_APP_WEB3FORMS_ACCESS_KEY is not set. Build uses the public fallback in signup.js unless you add this secret."; fi
           exit "$missing"
 
       - run: npm ci

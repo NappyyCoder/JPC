@@ -4,6 +4,10 @@ import { Container, Form } from "react-bootstrap";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
+// Web3Forms access keys are public (lock down with domain allowlist at web3forms.com).
+// Build can set REACT_APP_WEB3FORMS_ACCESS_KEY; fallback keeps the form working if CI/CD env is missed.
+const WEB3FORMS_ACCESS_KEY_FALLBACK = "06b20b07-69cd-4f56-b90e-43f5f72c639e";
+
 const FIELD_LABELS = {
     businessName: "Business name",
     businessOwner: "Business owner",
@@ -59,13 +63,9 @@ export default function Signup() {
             return;
         }
 
-        const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY?.trim();
-        if (!accessKey) {
-            alert(
-                "Web3Forms is not configured. For local dev: put REACT_APP_WEB3FORMS_ACCESS_KEY in a .env file in the project root and restart npm start. For the live site: add that same name as a GitHub Actions secret (or your host's build env), then redeploy so npm run build runs with the variable set."
-            );
-            return;
-        }
+        const accessKey =
+            (process.env.REACT_APP_WEB3FORMS_ACCESS_KEY || "").trim() ||
+            WEB3FORMS_ACCESS_KEY_FALLBACK;
 
         const fd = new FormData(el);
         const selectedTrades = fd.getAll("trade").join(", ");
