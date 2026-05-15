@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PageHeader from "../Components/pageHeader";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Alert } from "react-bootstrap";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
@@ -51,12 +51,24 @@ function labeledPayload(raw) {
 
 export default function Signup() {
     const form = useRef(null);
+    const statusRef = useRef(null);
     const [sending, setSending] = useState(false);
+    const [successMessage, setSuccessMessage] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    useEffect(() => {
+        if ((successMessage || errorMessage) && statusRef.current) {
+            statusRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, [successMessage, errorMessage]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const el = form.current;
         if (!el) return;
+
+        setSuccessMessage(null);
+        setErrorMessage(null);
 
         if (!el.checkValidity()) {
             el.reportValidity();
@@ -99,7 +111,9 @@ export default function Signup() {
 
             const result = await response.json().catch(() => ({}));
             if (response.ok && result.success === true) {
-                alert("Form submitted successfully!");
+                setSuccessMessage(
+                    "Thank you — your contractor sign-up was submitted successfully. We'll review your information and be in touch soon."
+                );
                 el.reset();
             } else {
                 const detail =
@@ -110,7 +124,7 @@ export default function Signup() {
             }
         } catch (error) {
             console.error("Form submit FAILED", error);
-            alert(`Something went wrong: ${error?.message ?? error}`);
+            setErrorMessage(String(error?.message ?? error));
         } finally {
             setSending(false);
         }
@@ -120,6 +134,28 @@ export default function Signup() {
         <>
         <PageHeader title="Contractor Sign-Up"/>
         <Container id="contractor-form">
+            <div ref={statusRef}>
+                {successMessage && (
+                    <Alert
+                        variant="success"
+                        className="mb-3"
+                        dismissible
+                        onClose={() => setSuccessMessage(null)}
+                    >
+                        {successMessage}
+                    </Alert>
+                )}
+                {errorMessage && (
+                    <Alert
+                        variant="danger"
+                        className="mb-3"
+                        dismissible
+                        onClose={() => setErrorMessage(null)}
+                    >
+                        {errorMessage}
+                    </Alert>
+                )}
+            </div>
             <Form ref={form} onSubmit={handleSubmit} noValidate>
                 <Form.Group className="mb-3" controlId="businessName">
                     <Form.Label>Business Name</Form.Label>
